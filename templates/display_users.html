@@ -1,1 +1,10 @@
-
+<table style='margin-left:15px;'>
+        <div style='height:5px;'></div>
+        {%for user in users%}
+            <tr class='row' style='padding-bottom:10px'>
+                <td><span class='avatar_display' style='background-color:{{user.avatar_color}}'><strong>{{user.initials}}</strong></span></td>
+                <td><span class='user_display_name'>{{user.name}}</span></td>
+            </tr>
+            
+        {%endfor%}
+  </table>
