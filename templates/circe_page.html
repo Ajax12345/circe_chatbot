@@ -1,0 +1,191 @@
+<html>
+    <style>
+    .title_name{
+      color:#D5D6D2;
+      font-family: 'Noto Sans TC', sans-serif;
+
+    }
+    .main_users{
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size:24px;
+      color:#353C3F;
+
+    }
+    .user_num{
+      border-radius:50%;
+      padding:2px;
+      background-color: #FF8D3F;
+
+      padding-left:8px;
+      padding-right:8px;
+      font-size:16px;
+    }
+    .new_session{
+      padding:10px;
+      border-radius:50%;
+      width:50px;
+      height:50px;
+      background-color: #FF8D3F;
+      border:none;
+      margin-top:400px;
+    }
+    .new_session:hover{
+      outline:none;
+    }
+    .get_started{
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size:20px;
+      background-color: #FF8D3F;
+      color:white;
+      padding:5px;
+      border-radius:5px;
+      border:none;
+
+    }
+    .main_text{
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .user_username{
+      width:450px;
+      font-size:20px;
+      border:none;
+      border-bottom:solid;
+      border-bottom-color: #353C3F;
+    }
+    .user_username:focus{
+      outline:none;
+      border-bottom-color: #FF8D3F;
+    }
+    .warning-text{
+      color:red;
+      font-size:13px;
+      font-family: 'Noto Sans TC', sans-serif;
+
+    }
+    .user_display_name{
+        font-family: 'Noto Sans TC', sans-serif;
+    
+
+    }
+    .avatar_display{
+        padding:5px;
+        border-radius:4px;
+      
+    }
+    .display_circe_users{
+        max-height:400px;
+        overflow: scroll;
+    }
+    </style>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+     </head>
+      <body>
+        <nav class="navbar navbar-expand-lg" style='background-color:#353C3F'>
+          <a class="navbar-brand title_name" href="#" style='font-size:20px;font-family: "Noto Sans TC", sans-serif;'>Circe</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="https://cs3041-18b.github.io/designs/chatbot_assn.html" style='color:#D5D6D2;font-family: "Noto Sans TC", sans-serif;'>about <span class="sr-only">(current)</span></a>
+              </li>
+
+            </ul>
+            <span class="navbar-text">
+              <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+            </span>
+          </div>
+        </nav>
+
+        <div class='container'>
+          <div class='row'>
+            <div class='col'>
+              <div style='height:30px;'></div>
+              <p class='main_users'><strong>Circe Users <span class='user_num'>{{users.num}}</span></strong></p>
+
+              <div style='height:20px;'></div>
+              <div class='display_circe_users'>
+                    <div style='height:5px;'></div>
+                  <table style='margin-left:15px;'>
+                        {%for user in users%}
+                            <tr class='row' style='padding-bottom:10px'>
+                                <td><span class='avatar_display' style='background-color:{{user.avatar_color}}'><strong>{{user.initials}}</strong></span></td>
+                                <td><span class='user_display_name'>{{user.name}}</span></td>
+                            </tr>
+                            
+                        {%endfor%}
+                  </table>
+                
+
+              </div>
+              <button class='new_session' data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus" style='color:black'></i></button>
+            </div>
+            <div class='col'>
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style='border-bottom:none;'>
+              <h5 class="modal-title" id="exampleModalLabel" style='font-family: "Noto Sans TC", sans-serif;'><strong>Welcome!</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body get_user_data">
+              <p class='main_text get_new_user'>Please enter your name (first and last):</p>
+              <div style='height:10px;'></div>
+              <input type='text' class='user_username'>
+              <p class='warning-text' id='for_user_username'></p>
+              <div style='height:20px;'></div>
+              <button type="button" class="get_started" style='float:right'>Get started!</button>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+      </body>
+    <script>
+      $(document).ready(function(){
+        $('.get_user_data').on('input', '.user_username', function(){
+          $('#for_user_username').text('');
+        });
+        $('.get_user_data').on('click', '.get_started', function(){
+          var val = $('.user_username').val();
+
+          if (val === ''){
+            $('#for_user_username').text('name cannot be empty');
+          }
+          else{
+            $.ajax({
+            url: "/add_user",
+            type: "get",
+            data: {name: val},
+            success: function(response) {
+                $('#exampleModal').modal('hide')
+                $('.display_circe_users').html(response.html);
+                $('.user_num').text(response.num);
+            },
+            error: function(xhr) {
+                    //Do Something to handle error
+            }
+            });
+          }
+        });
+      });
+    </script>
+
+</html>
