@@ -76,7 +76,7 @@
         max-height:400px;
         overflow: scroll;
     }
-    .chat_pannel{
+    #chat_pannel{
         width: 500px;
         height:525px;
         max-height:540px;
@@ -155,6 +155,10 @@
       outline:none;
       /*border-bottom:solid;*/
     }
+    .computer_typing{
+      font-family: 'Noto Sans TC', sans-serif;
+      color:#7E7E7E;
+    }
     </style>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -192,7 +196,7 @@
               <p class='main_users'><strong>Circe Users <span class='user_num'>{{users.num}}</span></strong></p>
 
               <div style='height:20px;'></div>
-              <div class='display_circe_users'>
+              <div class='display_circe_users' style='width:200px;height:400px;max-height:400px;overflow:scroll'>
                   <table style='margin-left:15px;margin-top:10px;'>
                         {%for user in users%}
                             <tr class='row' style='padding-bottom:10px'>
@@ -218,7 +222,7 @@
                     </table>
                     
                 </div>
-                <div class='chat_pannel'>
+                <div id='chat_pannel'>
                     <div style='height:50px;'></div>
                     <div class='circe_response'>
                         <p class='circe_text'>hello world!</p>
@@ -241,7 +245,7 @@
                 <div class='chat_footer'>
                   <div class='container'>
                     <div class='row'>
-                      <div class='col-md-auto'>
+                      <div class='col-md-auto' id='main_footer'>
                         <input type='text' class='get_user_input' placeholder='Learn more...'>
                       </div>
                       <div class='col-md-auto'>
@@ -280,6 +284,45 @@
       </body>
     <script>
       $(document).ready(function(){
+        function get_server_response(message){
+          
+          $.ajax({
+            url: "/get_circe_response",
+            type: "get",
+            data: {message: message},
+            success: function(response) {
+              $('.buffer_space').remove();
+              $('#chat_pannel').append(response.html);
+              $('.computer_typing').remove();
+              $('#chat_pannel').append("<div class='buffer_space' style='height:50px'></div>");
+              var objDiv = document.getElementById("chat_pannel");
+              objDiv.scrollTop = objDiv.scrollHeight;
+              $('.get_user_input').css('display', 'block');
+            },
+            error: function(xhr) {
+              //Do Something to handle error
+            }
+          });
+        }
+        function get_first_message(){
+          $.ajax({
+          url: "/get_welcome_message",
+          type: "get",
+          data: {val: ''},
+          success: function(response) {
+            if (response.success === 'True'){
+              $('#chat_pannel').html(response.html);
+              var new_html = `
+              <div class='buffer_space' style='height:100px'></div>
+              `
+              $('#chat_pannel').append(new_html);
+            } 
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+          }
+        });
+        }
         $('.get_user_data').on('input', '.user_username', function(){
           $('#for_user_username').text('');
         });
@@ -302,6 +345,7 @@
                 <span class='avatar_display' style='background-color:${response.avatar};font-size:16px;padding:9px;margin-top:20px;'><strong>${response.initials}</strong></span>
                 `
                 $('.user_avatar_current').html(the_html);
+                setTimeout(function(){get_first_message();}, 2000);
             },
             error: function(xhr) {
                     //Do Something to handle error
@@ -311,8 +355,25 @@
         });
         $('.get_user_input').on('keydown', function(event){
           if (event.keyCode === 13){
-            alert($('.get_user_input').val());
+            var val = $('.get_user_input').val();
+            $('.buffer_space').remove();
             $('.get_user_input').val('');
+            var the_html = `
+            <div style='height:50px'></div>
+            <div class="user_response">
+               <p class="circe_text">${val}</p>
+            </div>
+            <div class='buffer_space' style='height:100px'></div>
+            `
+            $('#chat_pannel').append(the_html);
+            $('.get_user_input').css('display', 'none');
+            $('#main_footer').append('<p class="computer_typing"><i>Circe is typing....</i></p>');
+            var objDiv = document.getElementById("chat_pannel");
+            objDiv.scrollTop = objDiv.scrollHeight;
+            setTimeout(function(){
+              get_server_response(val);
+            }, 2000);
+            
           }
         });
       });
