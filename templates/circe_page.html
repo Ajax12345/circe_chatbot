@@ -64,17 +64,96 @@
     }
     .user_display_name{
         font-family: 'Noto Sans TC', sans-serif;
-    
+
 
     }
     .avatar_display{
         padding:5px;
         border-radius:4px;
-      
+
     }
     .display_circe_users{
         max-height:400px;
         overflow: scroll;
+    }
+    .chat_pannel{
+        width: 500px;
+        height:525px;
+        max-height:540px;
+        overflow:scroll;
+        background-color:#DEDEDE;
+    }
+    .banner-top-box{
+        background-color: #FF8D3F;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        -webkit-box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+        box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+        
+    }
+    .circe_response{
+        background-color: #FF8D3F;
+        width:300px;
+        height:70px;
+        color:white;
+        margin-left:10px;
+        border-radius: 16px;
+        border-top-left-radius: 0px;
+        padding:10px; 
+        -webkit-box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+        box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+     
+    }
+    .circe_subsequent_response{
+        background-color: #FF8D3F;
+        width:270px;
+        height:50px;
+        color:white;
+        margin-left:10px;
+        border-radius: 16px;
+
+        padding:10px; 
+        -webkit-box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+        box-shadow: 2px 3px 15px -4px rgba(0,0,0,0.75);
+     
+    }
+    .user_response{
+        width:300px;
+        height:70px;
+        border-radius: 16px;
+        border-top-right-radius: 0px;
+        -webkit-box-shadow: -2px 3px 15px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: -2px 3px 15px -4px rgba(0,0,0,0.75);
+        box-shadow: -2px 3px 15px -4px rgba(0,0,0,0.75);
+        padding:10px;
+        color:white;
+        background-color:#AAAAAA;
+        float:right;
+        margin-right:10px;
+    }
+    .chat_footer{
+      height:75px;
+      width:500px;
+      background-color:#FF8D3F;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    .get_user_input{
+      margin-top:15px;
+      width:300px;
+      height:40px;
+      font-size:18px;
+      font-family: 'Noto Sans TC', sans-serif;
+      background:none;
+      border:none;
+
+    }
+    .get_user_input:focus{
+      outline:none;
+      /*border-bottom:solid;*/
     }
     </style>
     <head>
@@ -114,22 +193,63 @@
 
               <div style='height:20px;'></div>
               <div class='display_circe_users'>
-                    <div style='height:5px;'></div>
-                  <table style='margin-left:15px;'>
+                  <table style='margin-left:15px;margin-top:10px;'>
                         {%for user in users%}
                             <tr class='row' style='padding-bottom:10px'>
                                 <td><span class='avatar_display' style='background-color:{{user.avatar_color}}'><strong>{{user.initials}}</strong></span></td>
                                 <td><span class='user_display_name'>{{user.name}}</span></td>
                             </tr>
-                            
+
                         {%endfor%}
                   </table>
-                
+
 
               </div>
               <button class='new_session' data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus" style='color:black'></i></button>
             </div>
             <div class='col'>
+                <div class='banner-top-box' style='height:70px;width:500px;'>
+                    <div style='height:20px;'></div>
+                    <table style='margin-left:30px;'>
+                        <tr>
+                            <td><span class='avatar_display' style='background-color:#F225BA;font-size:16px;padding:9px;margin-top:20px;'><strong>C</strong></span></td>
+                            <td class='user_avatar_current'></td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                <div class='chat_pannel'>
+                    <div style='height:50px;'></div>
+                    <div class='circe_response'>
+                        <p class='circe_text'>hello world!</p>
+                    </div>
+                    <div style='height:50px'></div>
+                    <div class='user_response'>
+                        <p class='circe_text'>Hey!</p>
+                    </div>
+                    <div style='height:120px;'></div>
+                    <div class='circe_response'>
+                        <p class='circe_text'>next!</p>
+                    </div>
+                    <div style='height:10px;'></div>
+                    <div class='circe_subsequent_response'>
+                      <p class='circe_text'>next!</p>
+                    </div>
+                  
+                    
+                </div>
+                <div class='chat_footer'>
+                  <div class='container'>
+                    <div class='row'>
+                      <div class='col-md-auto'>
+                        <input type='text' class='get_user_input' placeholder='Learn more...'>
+                      </div>
+                      <div class='col-md-auto'>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -178,11 +298,21 @@
                 $('#exampleModal').modal('hide')
                 $('.display_circe_users').html(response.html);
                 $('.user_num').text(response.num);
+                var the_html = `
+                <span class='avatar_display' style='background-color:${response.avatar};font-size:16px;padding:9px;margin-top:20px;'><strong>${response.initials}</strong></span>
+                `
+                $('.user_avatar_current').html(the_html);
             },
             error: function(xhr) {
                     //Do Something to handle error
             }
             });
+          }
+        });
+        $('.get_user_input').on('keydown', function(event){
+          if (event.keyCode === 13){
+            alert($('.get_user_input').val());
+            $('.get_user_input').val('');
           }
         });
       });
