@@ -1,10 +1,17 @@
 import re, collections, typing
 import datetime
 
+class chatRedirect:
+    def __init__(self, _to_node:int) -> None:
+        self.to_node = _to_node
+
+
 class Chatterbot:
+    digits = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
     class _chatResponse(typing.NamedTuple):
         html:str
         next_node:typing.Any
+
 
     class ChatterbotResponse:
         def __init__(self, _message:str, _next_node:int, subsequent:typing.List[typing.Callable] = []) -> None:
@@ -30,8 +37,10 @@ class Chatterbot:
     def build(self, _message:str, _seq:int) -> str:
         _main, *_trailing = self._register[_seq]
         _full_response = _main() if not _seq else _main(_message)
+        if isinstance(_full_response, chatRedirect):
+            return self.build(_message, _full_response.to_node)
         _html = f'''
-        <div style='height:{"50px" if not _seq else "120px"}></div>
+        <div style='height:{"50px" if not _seq else "120px"}'></div>
         <div class='circe_response'>
             <p class='circe_text'>{_full_response.message}</p>
         </div>
@@ -65,7 +74,16 @@ if __name__ == '__main__':
 
     @chatter.chatterstream(1)
     def second_result(_val):
-        return Chatterbot.ChatterbotResponse("we are testing our data for now", chatter.end_chat)
+        return Chatterbot.ChatterbotResponse("we are testing our data for now", 2)
+
+    @chatter.chatterstream(2)
+    def third_val(_val):
+        return chatRedirect(4)
+
+    @chatter.chatterstream(4)
+    def fourth_val(val):
+        return Chatterbot.ChatterbotResponse('Yes!!!!', chatter.end_chat)
 
 
+ 
 
