@@ -1,18 +1,6 @@
 [
    {
-      "value": "altruism",
-      "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
-   },
-   {
-      "value": "generosity",
-      "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
-   },
-   {
-      "value": "compassion",
-      "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
-   },
-   {
-      "value": "kindess",
+      "value": ["altruism", "generosity", "compassion", "kindness"]
       "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
    },
    {
@@ -24,36 +12,28 @@
       "description": "A significant process of society of organism working or acting together for common, mutual, or some underlying benefits, as opposed to working in competition for selfish benefit. Study of the humanities aids the scholar in unraveling the mysteries of human connection."
    },
    {
-      "value": "creative",
+      "value": ["creative", "creativity"],
       "description": "Changing your perspective. Being creative is taking risks and ignoring doubt and facing fears; and breaking with routine and doing something different for the sake of doing something different. Humanities, especially the arts, requires creativity as a matter of course."
    },
    {
-      "value": "responsibility",
+      "value": ["responsibility", "responsible"],
       "description": "Humanities induct you into a distingished line of social leadership. A person with responsibility is one who can be trusted to act without needing strict supervision, because they are accountable for their own behavior."
    },
    {
-      "value": "dedication",
+      "value": ["dedication", "dedicated"],
       "description": "A kind of love that is not rewarding for people\u2019s own career, and a total effort to group. For individual, it is to be loved and completed as a career under the call of this love, to find pleasure from bit by bit; to do everything well, and to treat each person seriously. You will certainly need that skill to master certain aspects of the humanities, such as the language arts"
    },
    {
-      "value": "cooperation",
-      "description": "A significant process of society of organism working or acting together for common, mutual, or some underlying benefits, as opposed to working in competition for selfish benefit."
-   },
-   {
-      "value": "Creativity",
-      "description": "Thinking of novel and productive ways to conceptualize and do things"
-   },
-   {
       "value": "Fairness",
-      "description": "seeks to treat people equally, fairly"
+      "description": "Seeks to treat people equally, fairly"
    },
    {
       "value": "Tolerance",
       "description": "Accepting, collaborating, and compromising with people of other religions, ethnic groups, and castes"
    },
    {
-      "value": "Knowledgeable",
-      "description": "Mastering new skills, topics, and bodies of knowledge, whether on one\u2019s own or formally in school"
+      "value": ["Knowledgeable", "knowledge"],
+      "description": "Mastering new skills, topics, and bodies of knowledge, whether on one's own or formally in school"
    },
    {
       "value": "Wisdom",
@@ -80,12 +60,12 @@
       "description": "Not regarding oneself as more special than one is. Letting one\u2019s accomplishments speak for themselves"
    },
    {
-      "value": "Self-Disciplined",
+      "value": ["Self-Disciplined", "self-discipline", "self descipline"],
       "description": "Regulating what one feels and does; being disciplined; controlling one\u2019s appetites and emotions"
    },
    {
-      "value": "Self-Actualizing",
-      "description": "seeks\u00a0excellence, quality and beauty in life, work, and community"
+      "value": ["Self-Actualizing", "self actualizing"],
+      "description": "Seeks excellence, quality and beauty in life, work, and community"
    },
    {
       "value": "Hope",
@@ -96,7 +76,7 @@
       "description": "Having coherent beliefs about important higher purposes/values and making the world a better place"
    },
    {
-      "value": "Grateful",
+      "value": ["Grateful", "gratitude"],
       "description": "Being aware of and thankful for life, the good things that happen; taking time to express thanks to others"
    },
    {
@@ -108,7 +88,7 @@
       "description": "To spouse, family and friends, keeps promises, is dependable, steadfast and responsible"
    },
    {
-      "value": "Self Awareness",
+      "value": ["Self Awareness", "self-awareness"],
       "description": "Aware of the motives and feelings of other people and oneself and how your behavior impacts on others"
    },
    {
