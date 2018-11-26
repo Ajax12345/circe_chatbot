@@ -7,6 +7,15 @@
         "comment":"Music greatly increases mental flexibility, a necessary skill in this age!"},
     {
         "subject":"philosophy",
-        "comment":"Philosophy is the backbone of civilization. You made a excellent choice!"}
+        "comment":"Philosophy is the backbone of civilization. You made a excellent choice!"},
+    {
+        "subject":"psychology",
+        "comment":"Psychology is developing excellent research and analytical skills, the ability to be a better communicator. Great choice!"},
+    {
+        "subject":"language",
+        "comment":"Studying a second language enables you to improve problem-solving and critical-thinking skills, enhanced concentration, ability to multitask, and better listening skills. You made a good choice!"},
+    {
+        "subject":"writing",
+        "comment":"Writing helps you build a structure that will allow you to express yourself better and communicate complex ideas in a much more effective way. Nice choice!"}
 
 ]
