@@ -1,36 +1,118 @@
-
 [
-    {"value":"altruism",
-    "description":"A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
-    },
-    {"value":"generosity",
-    "description":"A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
-    },
-    {"value":"compassion",
-    "description":"A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
-    },
-    {"value":"kindess",
-    "description":"A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
-    },
-    {
-        "value":"education",
-        "description":"The humanities have been the vanguard of the intellectual arts since the dawn of time. From the Lascaux cave paintings to Jordan Peterson, the humanities have challenged humanity and forced it to truly examine its deepest thoughts and ideas"
-    },
-    {"value":"cooperation",
-   "description":"A significant process of society of organism working or acting together for common, mutual, or some underlying benefits, as opposed to working in competition for selfish benefit. Study of the humanities aids the scholar in unraveling the mysteries of human connection."
+   {
+      "value": "altruism",
+      "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
    },
-   {"value":"creative",
-   "description":"Changing your perspective. Being creative is taking risks and ignoring doubt and facing fears; and breaking with routine and doing something different for the sake of doing something different. Humanities, especially the arts, requires creativity as a matter of course."
+   {
+      "value": "generosity",
+      "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
    },
-   {"value":"responsibility",
-   "description":"Humanities induct you into a distingished line of social leadership. A person with responsibility is one who can be trusted to act without needing strict supervision, because they are accountable for their own behavior."
+   {
+      "value": "compassion",
+      "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
    },
-   {"value":"dedication",
-   "description":"A kind of love that is not rewarding for people’s own career, and a total effort to group. For individual, it is to be loved and completed as a career under the call of this love, to find pleasure from bit by bit; to do everything well, and to treat each person seriously. You will certainly need that skill to master certain aspects of the humanities, such as the language arts"
+   {
+      "value": "kindess",
+      "description": "A successful society depends upon altruism, charity, civility, compassion, and generosity, and the humanities evaluate and emphasize the importance of these characteristics."
    },
-   {"value":"cooperation",
-   "description":"A significant process of society of organism working or acting together for common, mutual, or some underlying benefits, as opposed to working in competition for selfish benefit."
+   {
+      "value": "education",
+      "description": "The humanities have been the vanguard of the intellectual arts since the dawn of time. From the Lascaux cave paintings to Jordan Peterson, the humanities have challenged humanity and forced it to truly examine its deepest thoughts and ideas"
+   },
+   {
+      "value": "cooperation",
+      "description": "A significant process of society of organism working or acting together for common, mutual, or some underlying benefits, as opposed to working in competition for selfish benefit. Study of the humanities aids the scholar in unraveling the mysteries of human connection."
+   },
+   {
+      "value": "creative",
+      "description": "Changing your perspective. Being creative is taking risks and ignoring doubt and facing fears; and breaking with routine and doing something different for the sake of doing something different. Humanities, especially the arts, requires creativity as a matter of course."
+   },
+   {
+      "value": "responsibility",
+      "description": "Humanities induct you into a distingished line of social leadership. A person with responsibility is one who can be trusted to act without needing strict supervision, because they are accountable for their own behavior."
+   },
+   {
+      "value": "dedication",
+      "description": "A kind of love that is not rewarding for people\u2019s own career, and a total effort to group. For individual, it is to be loved and completed as a career under the call of this love, to find pleasure from bit by bit; to do everything well, and to treat each person seriously. You will certainly need that skill to master certain aspects of the humanities, such as the language arts"
+   },
+   {
+      "value": "cooperation",
+      "description": "A significant process of society of organism working or acting together for common, mutual, or some underlying benefits, as opposed to working in competition for selfish benefit."
+   },
+   {
+      "value": "Creativity",
+      "description": "Thinking of novel and productive ways to conceptualize and do things"
+   },
+   {
+      "value": "Fairness",
+      "description": "seeks to treat people equally, fairly"
+   },
+   {
+      "value": "Tolerance",
+      "description": "Accepting, collaborating, and compromising with people of other religions, ethnic groups, and castes"
+   },
+   {
+      "value": "Knowledgeable",
+      "description": "Mastering new skills, topics, and bodies of knowledge, whether on one\u2019s own or formally in school"
+   },
+   {
+      "value": "Wisdom",
+      "description": "Being able to provide wise counsel to others; having new ways of looking at the world that make sense"
+   },
+   {
+      "value": "Courage",
+      "description": "Not shrinking from threat, challenge, difficulty, or pain; acting on convictions even if unpopular"
+   },
+   {
+      "value": "Persistence",
+      "description": "Finishing what one starts; persisting in the course of action in spite of obstacles, making things happen"
+   },
+   {
+      "value": "Integrity",
+      "description": "Presenting oneself in a genuine way; honest in personal dealings, free of corruption and dishonesty"
+   },
+   {
+      "value": "Vitality",
+      "description": "Approaching life with excitement and energy; feeling alive and activated, focuses on getting things completed"
+   },
+   {
+      "value": "Humility",
+      "description": "Not regarding oneself as more special than one is. Letting one\u2019s accomplishments speak for themselves"
+   },
+   {
+      "value": "Self-Disciplined",
+      "description": "Regulating what one feels and does; being disciplined; controlling one\u2019s appetites and emotions"
+   },
+   {
+      "value": "Self-Actualizing",
+      "description": "seeks\u00a0excellence, quality and beauty in life, work, and community"
+   },
+   {
+      "value": "Hope",
+      "description": "Expecting the best in the future and working to achieve it"
+   },
+   {
+      "value": "Spirituality",
+      "description": "Having coherent beliefs about important higher purposes/values and making the world a better place"
+   },
+   {
+      "value": "Grateful",
+      "description": "Being aware of and thankful for life, the good things that happen; taking time to express thanks to others"
+   },
+   {
+      "value": "Citizenship",
+      "description": "seek interests of community over self, participates and supports the improvement of society for both men and women"
+   },
+   {
+      "value": "Loyalty",
+      "description": "To spouse, family and friends, keeps promises, is dependable, steadfast and responsible"
+   },
+   {
+      "value": "Self Awareness",
+      "description": "Aware of the motives and feelings of other people and oneself and how your behavior impacts on others"
+   },
+   {
+      "value": "Humor",
+      "description": "Likes to laugh, bringing smiles to other people; emphasizes the lighter side of life, to enjoy the simple things in life"
    }
-
-
 ]
