@@ -89,13 +89,14 @@ def locate_school(_message):
     _option1 = [i for i in schools if i.lower() in _message.lower()]
     if _option1:
         _result = get_humanity_majors(_option1[0])
-        return chat.ChatterbotResponse("Sorry, I cannot find your school. Can you be more specific?", 17) if not _result else chat.ChatterbotResponse(f"Here are the humanities I found at {_option1[0]}:\n {_result}", chat.end_chat, subsequent=[lambda :"Thank you for exploring the humanities with me!", lambda :"<i>The arts and humanities teach us who we are and what we can be. They lie at the very core of the culture of which we’re a part</i>\n-Ronald Reagan"])
+        #lambda :"<i>The arts and humanities teach us who we are and what we can be. They lie at the very core of the culture of which we’re a part</i>\n-Ronald Reagan", lambda :"Goodbye!"
+        return chat.ChatterbotResponse("Sorry, I cannot find your school. Can you be more specific?", 17) if not _result else chat.ChatterbotResponse(f"Here are the humanities I found at {_option1[0]}:\n {_result}", 40, subsequent=[lambda :"Thank you for exploring the humanities with me!", lambda :"would you like to run another college search?"])
     with open('schools_with_abbrevs.json') as f:
         new_schools = json.load(f)
     new_options = [b for a, b in new_schools if a.lower() in _message.lower()]
     if new_options:
         _result = get_humanity_majors(new_options[0])
-        return chat.ChatterbotResponse("Sorry, I cannot find your school. Can you be more specific?", 17) if not _result else chat.ChatterbotResponse(f"Here are the humanities I found at {new_options[0]}:\n {_result}", chat.end_chat, subsequent=[lambda :"Thank you for exploring the humanities with me!", lambda :"<i>The arts and humanities teach us who we are and what we can be. They lie at the very core of the culture of which we’re a part</i>\n-Ronald Reagan"])
+        return chat.ChatterbotResponse("Sorry, I cannot find your school. Can you be more specific?", 17) if not _result else chat.ChatterbotResponse(f"Here are the humanities I found at {new_options[0]}:\n {_result}", 40, subsequent=[lambda :"Thank you for exploring the humanities with me!", lambda :"would you like to run another college search?"])
     return chat.ChatterbotResponse("Sorry, I cannot find your school. Can you be more specific?", 17)
 
 
@@ -144,7 +145,7 @@ def query_values(_message):
 def get_values(_message):
     with open('humanities_values.json') as f:
         _values = json.load(f)
-    _options = [i['description'] for i in _values if i['value'].lower() in _message.lower()]
+    _options = [i['description'] for i in _values if (i['value'].lower() in _message.lower() if isinstance(i['value'], str) else any(c.lower() in _message.lower() for c in i['value']))]
     return chat.ChatterbotResponse("The humanities have, for centuries, enabled mankind to think beyond itself, and grapple with the mysteries of the universe." if not _options else _options[0], 27, subsequent=[lambda :"Would you like me to find you a listing of humanities majors at your college?"])
 
 @chat.chatterstream(27)
@@ -168,3 +169,7 @@ def get_skills(_message):
     _majors = [i['major'] for i in data if i['skill'].lower() in _message.lower()]
     print('possible majors', _majors)
     return chat.ChatterbotResponse("I do not know much about that. Can you tell me more? I, like you, am a student!", 31) if not _majors else chat.ChatterbotResponse(matching_skill_banner(_majors, first_name), 27, subsequent=[lambda :"Would you like to see a listing of possible humanities at your school?"])
+
+@chat.chatterstream(40)
+def terminate_or_search(_message):
+    return bot.chatRedirect(15) if "yes" in _message.lower() else chat.ChatterbotResponse("Ok, goodby!", chat.end_chat)
